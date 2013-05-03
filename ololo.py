@@ -2,6 +2,7 @@ import random
 import pylab
 import math
 import scipy.special
+import numpy 
 
 # txt = open('results10.txt','w',)
 #  325 4.36 3.4  0.98 0.005
@@ -14,6 +15,42 @@ ConstDX       = 3.4
 ConstGA       = -0.02
 ConstAL       = 0.005
 CountInterval = int(1+3.32*math.log10(ConstN))+1
+
+#output data -------------------
+
+outfile = open("OLOLO.txt", 'w',)
+outfile.close()
+
+def OLOLO(structName,ololo):
+    outfile = open("OLOLO.txt", 'a',)
+    outfile.write(structName + '\n')
+    for elem in ololo:
+		outfile.write('%f\n ' % elem)
+    outfile.write('\n')
+    outfile.close()
+
+# print listic
+# print CountInterval
+# print stepInterval
+# print listOfInterval
+# print medianOfInterval
+# print frequencyOfInterval
+# print relativeFreOfInterval
+# print empireDensity
+
+
+#--------------
+
+def normDist(x):
+	a = math.sqrt(ConstDX);
+	sqrtp = math.sqrt(math.pi);
+	left = 1/(a*sqrtp)
+	xminMxQ = (x- ConstMX )**2
+	twoDx = 2*ConstDX
+	right = math.e**(-(xminMxQ/twoDx))
+	return left*right
+
+
 #-----------------------
 #GEN rand num
 #----
@@ -57,7 +94,7 @@ del(frequencyOfInterval[len(frequencyOfInterval)-1])
 
 listic.sort()
 
-print len(listic)
+#print len(listic)
 
 ind = 0
 i = 0
@@ -68,49 +105,55 @@ while i < len(listic) and ind < len(listOfInterval)-1:
 		i = i + 1
 	else:
 		ind = ind + 1
-
+ind = 0
+i = 0
 frequencyOfInterval[len(frequencyOfInterval)-1] = frequencyOfInterval[len(frequencyOfInterval)-1] + 1
+
+
+
 
 relativeFreOfInterval = []
 empireDensity = []
+teoreticDensity = []
+
 for elem in frequencyOfInterval:
 	relativeFreOfInterval.append((elem/(ConstN+0.0)))
 	empireDensity.append((elem/(ConstN+0.0))/stepInterval)
+	teoreticDensity.append(normDist(medianOfInterval[i]))
+	i = i +1
+i = 0
+
+
+empiricalMean = 0
+for elem in listic:
+	empiricalMean = empiricalMean + (elem/(ConstN+0.0))
 
 
 
 
-
-# print listic
-# print CountInterval
-# print stepInterval
-# print listOfInterval
-# print medianOfInterval
-# print frequencyOfInterval
-# print relativeFreOfInterval
-# print empireDensity
-
-def OLOLO(structName,ololo):
-    outfile = open("OLOLO.txt", 'a',)
-    outfile.write(structName)
-    for elem in ololo:
-		outfile.write('%f, ' % elem)
-    outfile.write('\n')
-    outfile.close()
-
-outfile = open("OLOLO.txt", 'w',)
-outfile.close()
-
-OLOLO('listic = ',listic)
+#OLOLO('listic = ',listic)
 OLOLO('listOfInterval = ',listOfInterval)
 OLOLO('medianOfInterval = ',medianOfInterval)
 OLOLO('frequencyOfInterval = ',frequencyOfInterval)
 OLOLO('relativeFreOfIntervall = ',relativeFreOfInterval)
 OLOLO('empireDensity / Height Gists = ',empireDensity)
+OLOLO('teoreticDensity = ', teoreticDensity)
+#print empiricalMean 
+
+ 
+
+# pylab.plot(teoreticDensity)
+# pylab.show()
+
+# pylab.plot(empireDensity)
+# pylab.show()
+
+# pylab.hist(listic)
+# pylab.show()
 
 
 
-#print len(listic)
+# print len(listic)
 # pylab.hist(listic)
 # pylab.show()
 
