@@ -3,7 +3,7 @@ import pylab
 import math
 import scipy.special
 
-# txt = open('results10.txt','w')
+# txt = open('results10.txt','w',)
 #  325 4.36 3.4  0.98 0.005
 
 # List consts
@@ -80,39 +80,38 @@ for elem in frequencyOfInterval:
 
 
 
-#print listic
-#print CountInterval
-#print stepInterval
-#print listOfInterval
-#print medianOfInterval
-#print frequencyOfInterval
-#print relativeFreOfInterval
-#print empireDensity
+
+# print listic
+# print CountInterval
+# print stepInterval
+# print listOfInterval
+# print medianOfInterval
+# print frequencyOfInterval
+# print relativeFreOfInterval
+# print empireDensity
 
 def OLOLO(structName,ololo):
-
-    outfile = open("OLOLO.txt", 'a')
-    outfile.write(structName);
+    outfile = open("OLOLO.txt", 'a',)
+    outfile.write(structName)
     for elem in ololo:
-	    outfile.write('%f, ' % elem)
+		outfile.write('%f, ' % elem)
     outfile.write('\n')
     outfile.close()
 
-outfile = open("OLOLO.txt",'w')
-outfile.close();
+outfile = open("OLOLO.txt", 'w',)
+outfile.close()
+
 OLOLO('listic = ',listic)
-OLOLO('listOfInterval = ' ,listOfInterval)
-OLOLO('medianofinterval = ',medianOfInterval)
+OLOLO('listOfInterval = ',listOfInterval)
+OLOLO('medianOfInterval = ',medianOfInterval)
 OLOLO('frequencyOfInterval = ',frequencyOfInterval)
-OLOLO('relativefreofintervall = ',relativeFreOfInterval)
+OLOLO('relativeFreOfIntervall = ',relativeFreOfInterval)
 OLOLO('empireDensity / Height Gists = ',empireDensity)
 
 
 
-
-
 #print len(listic)
-#pylab.hist(listic)
-#pylab.show()
+# pylab.hist(listic)
+# pylab.show()
 
 
