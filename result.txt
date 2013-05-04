@@ -1,12 +1,12 @@
 empiricalMx = 
-4.361931
+4.252330
  
 EmpiricalDx = 
-3.006532
+3.516479
  
 EmpiricalMedian = 
-4.362125
+4.272155
  
 getEmpiricalDisp = 
-3.032601
+3.566008
  

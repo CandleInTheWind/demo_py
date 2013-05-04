@@ -18,7 +18,7 @@ def printOneOne():
 	printLists('listOfInterval = ',listOfInterval)
 	printLists('medianOfInterval = ',medianOfInterval)
 	printLists('freqOfInterval = ',freqOfInterval)
-	printLists('relativeFreqOfIntervall = ',relativeFreqOfInterval)
+	printLists('reblativeFreqOfIntervall = ',relativeFreqOfInterval)
 	printLists('empireDensity / Height Gists = ',empireDensity)
 	printLists('teoreticDensity = ', teoreticDensity)
 
