@@ -18,6 +18,11 @@ def printLists(structName,printLists):
     outfile.write('\n')
     outfile.close()
 
-# print listic print CountInterval print getStepInterval print listOfInterval
-# print medianOfInterval print freqOfInterval print relativeFreqOfInterval print
-# empireDensity
+def printVarible(varName,var):
+	outfile = open("result.txt", 'a',)
+	outfile.write(varName + '\n')
+	outfile.write('%f\n ' %var)
+	outfile.write('\n')
+	outfile.close()
+
+ 

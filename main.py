@@ -10,6 +10,25 @@ from  oneTwo import *
 from listConsts import *
 from printResult import *
 
+
+
+
+def printOneOne():
+	printLists('listic = ',listic)
+	printLists('listOfInterval = ',listOfInterval)
+	printLists('medianOfInterval = ',medianOfInterval)
+	printLists('freqOfInterval = ',freqOfInterval)
+	printLists('relativeFreqOfIntervall = ',relativeFreqOfInterval)
+	printLists('empireDensity / Height Gists = ',empireDensity)
+	printLists('teoreticDensity = ', teoreticDensity)
+
+def printOneTwo():
+	printVarible('empiricalMx = ',getEmpiricalMx(listic))
+	printVarible('EmpiricalDx = ',getEmpiricalDx(listic))
+	printVarible('EmpiricalMedian = ',getEmpiricalMedian(freqOfInterval,medianOfInterval))
+	printVarible('getEmpiricalDisp = ',getEmpiricalDisp(freqOfInterval,medianOfInterval))
+
+
 #Solve-------------------
 # 1.1
 #-------------
@@ -32,25 +51,15 @@ teoreticDensity = []
 genDensity(listic,freqOfInterval,relativeFreqOfInterval,empireDensity,teoreticDensity,medianOfInterval)
 #-------------
 
-# 1.2
-#--------------------
-print getEmpiricalMx(listic)
-print getEmpiricalDx(listic)
-#--------------------
+#printOneOne()
+printOneTwo()
 
 
 
 
 
+ 
 
-#printLists('listic = ',listic)
-printLists('listOfInterval = ',listOfInterval)
-printLists('medianOfInterval = ',medianOfInterval)
-printLists('freqOfInterval = ',freqOfInterval)
-printLists('relativeFreqOfIntervall = ',relativeFreqOfInterval)
-printLists('empireDensity / Height Gists = ',empireDensity)
-printLists('teoreticDensity = ', teoreticDensity)
-#print empiricalMean
 
 
 
