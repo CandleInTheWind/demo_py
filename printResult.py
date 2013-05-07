@@ -20,7 +20,7 @@ def printLists(structName,printLists):
 
 def printVarible(varName,var):
 	outfile = open("result.txt", 'a',)
-	outfile.write(varName + '\n')
+	outfile.write(varName)
 	outfile.write('%f\n ' %var)
 	outfile.write('\n')
 	outfile.close()

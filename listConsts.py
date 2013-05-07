@@ -12,6 +12,6 @@ import numpy
 ConstN        = 325
 ConstMX       = 4.36
 ConstDX       = 3.4
-ConstGA       = -0.02
+ConstGA       = 0.98 #-0.02
 ConstAL       = 0.005
 CountInterval =int(1+3.32*math.log10(ConstN))+1

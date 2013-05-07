@@ -1,12 +1,8 @@
-empiricalMx = 
-4.252330
+leftConfInterval = 4.136427
  
-EmpiricalDx = 
-3.516479
+rightConfInterval = 4.606080
  
-EmpiricalMedian = 
-4.272155
+leftLim = 2.777138
  
-getEmpiricalDisp = 
-3.566008
+rightLim = 4.005445
  

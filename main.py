@@ -6,6 +6,7 @@ import numpy
 
 from  oneOne import *
 from  oneTwo import *
+from  oneFour import *
 
 from listConsts import *
 from printResult import *
@@ -29,6 +30,12 @@ def printOneTwo():
 	printVarible('getEmpiricalDisp = ',getEmpiricalDisp(freqOfInterval,medianOfInterval))
 
 
+def OneFour():
+	printVarible('leftConfInterval = ', leftConfInterval(freqOfInterval,medianOfInterval))
+	printVarible('rightConfInterval = ', rightConfInterval(freqOfInterval,medianOfInterval))
+	printVarible('leftLim = ', leftLim(freqOfInterval,medianOfInterval))
+	printVarible('rightLim = ', rightLim(freqOfInterval,medianOfInterval))
+
 #Solve-------------------
 # 1.1
 #-------------
@@ -49,11 +56,21 @@ empireDensity = []
 teoreticDensity = []
 
 genDensity(listic,freqOfInterval,relativeFreqOfInterval,empireDensity,teoreticDensity,medianOfInterval)
+
+#OneOne()
 #-------------
 
-#printOneOne()
-printOneTwo()
 
+
+# 1.2
+#OneTwo()
+#
+
+#1.4
+OneFour()
+#
+
+ 
 
 
 
