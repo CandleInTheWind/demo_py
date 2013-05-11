@@ -2,7 +2,7 @@ import random
 import pylab
 import math
 import scipy.special
-import numpy 
+import numpy
 
 from listConsts import *
 
@@ -29,14 +29,18 @@ def getStepInterval(listic):
 
 
 
-
-
-
-#GEN rand num #---
-
+#-------------------
+def getList(listic):
+    inputText = open("input.txt",'r')
+    for i in range(ConstN):
+        listic.append(float(inputText.readline()))
+    inputText.close()
+#-----------------------------
+#GEN rand num
+#---
 def genList(listic):
     for i in range(ConstN):
-        listic.append(random.normalvariate(ConstMX,math.sqrt(ConstDX)));
+        listic.append(random.normalvariate(ConstMX,math.sqrt(ConstDX)))
 #---
 
 #len of equal interval

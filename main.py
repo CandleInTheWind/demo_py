@@ -7,6 +7,7 @@ import numpy
 from  oneOne import *
 from  oneTwo import *
 from  oneFour import *
+from  oneFive import *
 
 from listConsts import *
 from printResult import *
@@ -15,7 +16,7 @@ from printResult import *
 
 
 def printOneOne():
-	printLists('listic = ',listic)
+#	printLists('listic = ',listic)
 	printLists('listOfInterval = ',listOfInterval)
 	printLists('medianOfInterval = ',medianOfInterval)
 	printLists('freqOfInterval = ',freqOfInterval)
@@ -30,17 +31,28 @@ def printOneTwo():
 	printVarible('getEmpiricalDisp = ',getEmpiricalDisp(freqOfInterval,medianOfInterval))
 
 
-def OneFour():
+def printOneFour():
 	printVarible('leftConfInterval = ', leftConfInterval(freqOfInterval,medianOfInterval))
 	printVarible('rightConfInterval = ', rightConfInterval(freqOfInterval,medianOfInterval))
 	printVarible('leftLim = ', leftLim(freqOfInterval,medianOfInterval))
 	printVarible('rightLim = ', rightLim(freqOfInterval,medianOfInterval))
 
+
+def printOneFive():
+    printLists('getProbPrac = ',getProb(getListLaplasPrac()))
+    printLists('getProbTeor = ',getProb(getListLaplasTeor()))
+    printVarible('getHiPrac = ',getHi(freqOfInterval,getListLaplasPrac()))
+    printVarible('getHiTeor = ',getHi(freqOfInterval,getListLaplasTeor()))
+    printVarible('HiAllowably = ' , 20.277739875 )
+
 #Solve-------------------
 # 1.1
 #-------------
 listic = []
-genList(listic)
+#  genList(listic)
+getList(listic)
+#print len(listic)
+#print listic
 listic.sort()
 
 listOfInterval = []
@@ -57,34 +69,37 @@ teoreticDensity = []
 
 genDensity(listic,freqOfInterval,relativeFreqOfInterval,empireDensity,teoreticDensity,medianOfInterval)
 
-#OneOne()
-#-------------
+#printOneOne()
 
 
 
 # 1.2
-#OneTwo()
+printOneTwo()
 #
 
 #1.4
-OneFour()
+printOneFour()
 #
 
- 
+#1.5
+printOneFive()
+#
 
 
 
 
- 
 
 
 
 
-# pylab.plot(teoreticDensity)
-# pylab.show()
 
-# pylab.plot(empireDensity)
-# pylab.show()
+
+
+#pylab.plot(teoreticDensity)
+#pylab.show()
+
+#pylab.plot(empireDensity)
+#pylab.show()
 
 # pylab.hist(listic)
 # pylab.show()
