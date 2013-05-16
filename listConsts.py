@@ -9,9 +9,19 @@ import numpy
 
 # List consts
 #-----------------------
-ConstN        = 325
-ConstMX       = 4.36
-ConstDX       = 3.4
-ConstGA       = 0.98 #-0.02
-ConstAL       = 0.005
-CountInterval =int(1+3.32*math.log10(ConstN))+1
+ConstOneN        = 325
+ConstOneMX       = 4.36
+ConstOneDX       = 3.4
+ConstOneGA       = 0.98 #-0.02
+ConstOneAL       = 0.005
+CountOneInterval =int(1+3.32*math.log10(ConstOneN))+1
+
+
+
+ConstTwoN = 400
+ConstTwoAlpha = 0.025
+ConstTwoGamma = 0.9
+ConstTwoA = 0.5
+ConstTwoMX = 0
+ConstTwoDX = 13.1595
+CountTwoInterval = int(1+3.32*math.log10(ConstTwoN)+1)

@@ -2,6 +2,9 @@ import random
 import pylab
 import math
 import scipy.special
+
+from scipy import stats
+
 import numpy
 
 from  oneOne import *
@@ -15,99 +18,178 @@ from printResult import *
 
 
 
-def printOneOne():
-#	printLists('listic = ',listic)
-	printLists('listOfInterval = ',listOfInterval)
-	printLists('medianOfInterval = ',medianOfInterval)
-	printLists('freqOfInterval = ',freqOfInterval)
-	printLists('reblativeFreqOfIntervall = ',relativeFreqOfInterval)
-	printLists('empireDensity / Height Gists = ',empireDensity)
-	printLists('teoreticDensity = ', teoreticDensity)
+def printOneOne(nameFile):
+ 	printLists(nameFile,'listic = ',listic)
+	printLists(nameFile,'listOfInterval = ',listOfInterval)
+	printLists(nameFile,'medianOfInterval = ',medianOfInterval)
+	printLists(nameFile,'freqOfInterval = ',freqOfInterval)
+	printLists(nameFile,'reblativeFreqOfIntervall = ',relativeFreqOfInterval)
+	printLists(nameFile,'empireDensity / Height Gists = ',empireDensity)
+	printLists(nameFile,'teoreticDensity = ', teoreticDensity)
 
-def printOneTwo():
-	printVarible('empiricalMx = ',getEmpiricalMx(listic))
-	printVarible('EmpiricalDx = ',getEmpiricalDx(listic))
-	printVarible('EmpiricalMedian = ',getEmpiricalMedian(freqOfInterval,medianOfInterval))
-	printVarible('getEmpiricalDisp = ',getEmpiricalDisp(freqOfInterval,medianOfInterval))
-
-
-def printOneFour():
-	printVarible('leftConfInterval = ', leftConfInterval(freqOfInterval,medianOfInterval))
-	printVarible('rightConfInterval = ', rightConfInterval(freqOfInterval,medianOfInterval))
-	printVarible('leftLim = ', leftLim(freqOfInterval,medianOfInterval))
-	printVarible('rightLim = ', rightLim(freqOfInterval,medianOfInterval))
+def printOneTwo(nameFile):
+	printVarible(nameFile,'EmpiricalMx = ',getEmpiricalMx(listic))
+	printVarible(nameFile,'EmpiricalDx = ',getEmpiricalDx(listic))
+	printVarible(nameFile,'EmpiricalMedian = ',getEmpiricalMedian(freqOfInterval,medianOfInterval))
+	printVarible(nameFile,'EmpiricalDisp = '  ,getEmpiricalDisp(freqOfInterval,medianOfInterval))
 
 
-def printOneFive():
-    printLists('getProbPrac = ',getProb(getListLaplasPrac()))
-    printLists('getProbTeor = ',getProb(getListLaplasTeor()))
-    printVarible('getHiPrac = ',getHi(freqOfInterval,getListLaplasPrac()))
-    printVarible('getHiTeor = ',getHi(freqOfInterval,getListLaplasTeor()))
-    printVarible('HiAllowably = ' , 20.277739875 )
+def printOneFour(nameFile):
+	printVarible(nameFile,'leftConfIntervalMX = ', leftConfInterval(freqOfInterval,medianOfInterval))
+	printVarible(nameFile,'rightConfIntervalMX = ', rightConfInterval(freqOfInterval,medianOfInterval))
+	printVarible(nameFile,'leftLimDX = ', leftLim(freqOfInterval,medianOfInterval))
+	printVarible(nameFile,'rightLimDX = ', rightLim(freqOfInterval,medianOfInterval))
+
+
+def printOneFive(nameFile):
+	printLists(nameFile,'getProbPrac = ',getProb(getListLaplas(getListForLaplasPrac(listOfInterval,freqOfInterval,medianOfInterval))))
+	printLists(nameFile,'getProbTeor = ',getProb(getListLaplas(getListForLaplasTeor(listOfInterval,freqOfInterval,medianOfInterval))))
+	printVarible(nameFile,'getHiPrac = ',getHi(freqOfInterval,getListLaplas(getListForLaplasPrac(listOfInterval,freqOfInterval,medianOfInterval))))
+	printVarible(nameFile,'getHiTeor = ',getHi(freqOfInterval,getListLaplas(getListForLaplasTeor(listOfInterval,freqOfInterval,medianOfInterval))))
+	printVarible(nameFile,'HiAllowably = ' , getHiAllowably(len(freqOfInterval)-4,ConstOneGA))
+	printVarible(nameFile,'HiAllowably = ' , getHiAllowably(len(freqOfInterval)-2,ConstOneGA))
+	printNewPart()
+
+
+
+
+
+def printAllOne(nameFile):
+
+    printOneOne(nameFile)
+    printOneTwo(nameFile)
+    printOneFour(nameFile)
+    printOneFive(nameFile)
+
+
+
+
+def printTwoOne(nameFile):
+ 	printLists(nameFile,'listic = ',listic)
+	printLists(nameFile,'listOfInterval = ',listOfInterval)
+	printLists(nameFile,'medianOfInterval = ',medianOfInterval)
+	printLists(nameFile,'freqOfInterval = ',freqOfInterval)
+	printLists(nameFile,'reblativeFreqOfIntervall = ',relativeFreqOfInterval)
+	printLists(nameFile,'empireDensity / Height Gists = ',empireDensity)
+	printLists(nameFile,'teoreticDensity = ', teoreticDensity)
+
+def printTwoTwo(nameFile):
+	printVarible(nameFile,'EmpiricalMx = ',getTwoEmpiricalMx(listic))
+	printVarible(nameFile,'EmpiricalDx = ',getTwoEmpiricalDx(listic))
+	printVarible(nameFile,'EmpiricalMedian = ',getTwoEmpiricalMedian(freqOfInterval,medianOfInterval))
+	printVarible(nameFile,'EmpiricalDisp = '  ,getTwoEmpiricalDisp(freqOfInterval,medianOfInterval))
+
+
+def printTwoFive(nameFile):
+	printLists(nameFile,'getProbPrac = ',getTwoProb(getTwoListLaplas(getTwoListForLaplasPrac(listOfInterval,freqOfInterval,medianOfInterval))))
+	printLists(nameFile,'getProbTeor = ',getTwoProb(getTwoListLaplas(getTwoListForLaplasTeor(listOfInterval,freqOfInterval,medianOfInterval))))
+	printVarible(nameFile,'getHiPrac = ',getTwoHi(freqOfInterval,getTwoListLaplas(getTwoListForLaplasPrac(listOfInterval,freqOfInterval,medianOfInterval))))
+	printVarible(nameFile,'getHiTeor = ',getTwoHi(freqOfInterval,getTwoListLaplas(getTwoListForLaplasTeor(listOfInterval,freqOfInterval,medianOfInterval))))
+	printVarible(nameFile,'HiAllowably = ' , getTwoHiAllowably(len(freqOfInterval)-4,ConstTwoGamma))
+	printVarible(nameFile,'HiAllowably = ' , getTwoHiAllowably(len(freqOfInterval)-2,ConstTwoGamma))
+
+
+def printAllTwo(nameFile):
+
+    printTwoOne(nameFile)
+    printTwoTwo(nameFile)
+    # printTwoFour(nameFile)
+    printTwoFive(nameFile)
+
+
+
+
+
+
+
+def getListOperationOne():
+
+    listic.sort()
+
+    genInterals(listic,listOfInterval,freqOfInterval,medianOfInterval)
+
+    countFreq(listic,listOfInterval,freqOfInterval)
+
+    mergeIntervalLeftToRight(listOfInterval,freqOfInterval,medianOfInterval)
+    mergeIntervalRightToLeft(listOfInterval,freqOfInterval,medianOfInterval)
+    genDensity(listic,freqOfInterval,relativeFreqOfInterval,empireDensity,teoreticDensity,medianOfInterval)
+
+def getListOperationTwo():
+
+    listic.sort()
+
+    genTwoInterals(listic,listOfInterval,freqOfInterval,medianOfInterval)
+
+    countTwoFreq(listic,listOfInterval,freqOfInterval)
+    mergeTwoIntervalLeftToRight(listOfInterval,freqOfInterval,medianOfInterval)
+    mergeTwoIntervalRightToLeft(listOfInterval,freqOfInterval,medianOfInterval)
+    genTwoDensity(listic,freqOfInterval,relativeFreqOfInterval,empireDensity,teoreticDensity,medianOfInterval)
+	
 
 #Solve-------------------
 # 1.1
 #-------------
-listic = []
-#  genList(listic)
-getList(listic)
-#print len(listic)
-#print listic
-listic.sort()
 
-listOfInterval = []
-freqOfInterval = []
-medianOfInterval = []
-
-genInterals(listic,listOfInterval,freqOfInterval,medianOfInterval)
-
-countFreq(listic,listOfInterval,freqOfInterval)
-
-relativeFreqOfInterval = []
-empireDensity = []
-teoreticDensity = []
-
-genDensity(listic,freqOfInterval,relativeFreqOfInterval,empireDensity,teoreticDensity,medianOfInterval)
-
-#printOneOne()
+for i in range (10):
 
 
+	listic = genVarNormList()
 
-# 1.2
-printOneTwo()
-#
+	listOfInterval = []
+	freqOfInterval = []
+	medianOfInterval = []
 
-#1.4
-printOneFour()
-#
+	relativeFreqOfInterval = []
+	empireDensity = []
+	teoreticDensity = []
 
-#1.5
-printOneFive()
-#
+	getListOperationOne()
+
+	nameFile = "Result//resultPart1-" + str(i+1)+".txt"
+	outfile = open(nameFile, 'w',)
+	outfile.close()
+	printAllOne(nameFile)
+
+
+	# PrintSection
+	pylab.figure(3)
+	pylab.plot(medianOfInterval,teoreticDensity)
+	pylab.plot(medianOfInterval,empireDensity)
+	pylab.hist(listic,bins = 10,normed = 10,histtype='bar',rwidth=1)
+	pylab.savefig("Graphics//Part1-"+str(1+i) + ".png")
+
+	pylab.close()
+
+	#----------------------
+	#2.1
 
 
 
 
+	listic =  getVarHzList(genProbList())
+	listic.sort()
+
+	listOfInterval = []
+	freqOfInterval = []
+	medianOfInterval = []
+
+	relativeFreqOfInterval = []
+	empireDensity = []
+	teoreticDensity = []
+
+	getListOperationTwo()
+
+	nameFile = "Result//resultPart2-" + str(i+1)+".txt"
+	outfile = open(nameFile, 'w',)
+	outfile.close()
+	printAllTwo(nameFile)
 
 
 
-
-
-
-
-#pylab.plot(teoreticDensity)
-#pylab.show()
-
-#pylab.plot(empireDensity)
-#pylab.show()
-
-# pylab.hist(listic)
-# pylab.show()
-
-
-
-# print len(listic)
-# pylab.hist(listic)
-# pylab.show()
-
-
+	# # PrintSection
+	pylab.figure(3)
+	pylab.plot(medianOfInterval,teoreticDensity)
+	pylab.plot(medianOfInterval,empireDensity)
+	pylab.hist(listic,bins = 10,normed = 10,histtype='bar',rwidth=1)
+	pylab.savefig("Graphics//Part2-"+str(1+i) + ".png")
+	pylab.close()

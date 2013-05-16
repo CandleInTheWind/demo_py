@@ -7,22 +7,25 @@ import numpy
 
 #output data #-------------------
 
-outfile = open("result.txt", 'w',)
-outfile.close()
 
-def printLists(structName,printLists):
-    outfile = open("result.txt", 'a',)
+
+def printLists(nameFile,structName,printLists):
+    outfile = open(nameFile, 'a',)
     outfile.write(structName + '\n')
     for elem in printLists:
         outfile.write('%f\n ' %elem)
     outfile.write('\n')
     outfile.close()
 
-def printVarible(varName,var):
-	outfile = open("result.txt", 'a',)
+def printVarible(nameFile,varName,var):
+	outfile = open(nameFile, 'a',)
 	outfile.write(varName)
 	outfile.write('%f\n ' %var)
 	outfile.write('\n')
 	outfile.close()
+
+def printNewPart():
+    outfile = open("result.txt", 'a',)
+    outfile.write("============= \n NewPart \n===============\n")
 
  
