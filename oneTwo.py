@@ -9,7 +9,7 @@ from oneOne import *
 
 
 
-#-----
+# #-----
 def getEmpiricalMx(listic):
     empiricalMean = 0
     for elem in listic:

@@ -79,6 +79,12 @@ def printTwoTwo(nameFile):
 	printVarible(nameFile,'EmpiricalMedian = ',getTwoEmpiricalMedian(freqOfInterval,medianOfInterval))
 	printVarible(nameFile,'EmpiricalDisp = '  ,getTwoEmpiricalDisp(freqOfInterval,medianOfInterval))
 
+def printTwoFour(nameFile):
+	printVarible(nameFile,'leftConfIntervalMX = ', leftTwoConfInterval(freqOfInterval,medianOfInterval))
+	printVarible(nameFile,'rightConfIntervalMX = ', rightTwoConfInterval(freqOfInterval,medianOfInterval))
+ 	printVarible(nameFile,'leftLimDX = ', leftTwoLim(listic,freqOfInterval,medianOfInterval))
+	printVarible(nameFile,'rightLimDX = ',rightTwoLim(listic,freqOfInterval,medianOfInterval))
+
 
 def printTwoFive(nameFile):
 	printLists(nameFile,'getProbPrac = ',getTwoProb(getTwoListLaplas(getTwoListForLaplasPrac(listOfInterval,freqOfInterval,medianOfInterval))))
@@ -93,7 +99,7 @@ def printAllTwo(nameFile):
 
     printTwoOne(nameFile)
     printTwoTwo(nameFile)
-    # printTwoFour(nameFile)
+    printTwoFour(nameFile)
     printTwoFive(nameFile)
 
 
